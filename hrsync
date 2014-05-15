@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+# hrsync by Daniele Paroli
+# simple script to backup a directory with rsync detecting moved and renamed files
+# use it at your own risk, please see README and LICENSE files
+
+# BASIC CONFIGURATION
+
+# Backup source directory, no trailing slashes 
+Source="/home/daniele/Documents"
+
+# Backup target directory, no trailing slashes
+Target="/media/daniele/reader/Documents"
+
+# END BASIC CONFIGURATION
+
+# Name of shadow directory created inside source and target
+Shadow=".rsync_shadow"
+
+# Start doing things
+
+if [ ! -d "$Source/$Shadow" ] 
+then
+	# first time: create source shadow directory
+	rsync -a --delete --link-dest="$Source" --exclude="/$Shadow" "$Source"/ "$Source/$Shadow"
+fi
+
+# do real syncronization
+rsync -axXhHv --stats --no-inc-recursive --numeric-ids --delete --delete-after "$Source"/ "$Target"
+
+status=$?
+
+if [ $status -eq 0 ]
+then
+	#update source shadow directory
+	rsync -a --delete --link-dest="$Source" --exclude="/$Shadow" "$Source"/ "$Source/$Shadow"
+
+	#update target shadow directory
+	rsync -a --delete --link-dest="$Target" --exclude="/$Shadow" "$Target"/ "$Target/$Shadow"
+fi
+
+exit $status
