@@ -18,6 +18,7 @@ Requirements
 * rsync >= 3.0
 * filesystem with support for hard links on both sides
 * source and target directory should be on different devices
+* source and target directory mounted on local filesystem (working on remote target with ssh protocol) 
 
 Usage
 -------
