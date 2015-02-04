@@ -10,16 +10,17 @@ After the initial run you will find a new directory (.rsync_shadow) inside sourc
 
 Credits due to this brilliant article: [Detecting File Moves & Renames with Rsync](http://lincolnloop.com/blog/detecting-file-moves-renames-rsync/).
 
+Some background info in this serverfault question: [Handling renamed files or directories in rsync](http://serverfault.com/questions/489289/handling-renamed-files-or-directories-in-rsync)
+
 I provide no documentation if you want to know more just look at the source code, it's really short!
 
 Requirements
 ------------
 
-* rsync >= 3.0
+* rsync >= 3.0 (on remote host also if you use remote target)
 * filesystem with support for hard links on both sides
 * source and target directory should be on different devices
 * source on local filesystem and optionally target on remote (via ssh)
-* rsync >= 3.0 on remote machine (if target directory is on remote host)
 
 Usage
 -------
