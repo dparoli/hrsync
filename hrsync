@@ -20,6 +20,20 @@ Shadow=".rsync_shadow"
 
 # Start doing things
 
+if [ -z "$2" ]
+then
+	echo "Usage:"
+	echo "	hrsync source target"
+	echo "	hrsync source target remoteHost"
+	echo "Example:"
+	echo "	hrsync /home/user/Documents /mnt/external/Documents"
+	echo "	hrsync /home/user/Documents /root/Documents root@example.com"
+	echo "Please see the README file"
+
+	exit 0
+fi
+
+
 if [ ! -d "$Source/$Shadow" ] 
 then
 	# first time run: create source shadow
