@@ -12,7 +12,7 @@ Credits due to this brilliant article: [Detecting File Moves & Renames with Rsyn
 
 Some background info in this serverfault question: [Handling renamed files or directories in rsync](http://serverfault.com/questions/489289/handling-renamed-files-or-directories-in-rsync)
 
-I provide no documentation if you want to know more just look at the source code, it's really short!
+I provide no documentation. If you want to know more just look at the source code, it's really short!
 
 Requirements
 ------------
@@ -25,7 +25,7 @@ Requirements
 Usage
 -------
 
-1) Both surce and target on local filesystem: run the script with source and target directories as arguments:
+1) Both source and target on local filesystem: run the script with source and target directories as arguments:
 
 ```sh
 cd <dir>
