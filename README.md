@@ -10,7 +10,7 @@ After the initial run you will find a new directory (.rsync_shadow) inside sourc
 
 Credits due to this brilliant article: [Detecting File Moves & Renames with Rsync](http://lincolnloop.com/blog/detecting-file-moves-renames-rsync/).
 
-Some background info in this serverfault question: [Handling renamed files or directories in rsync](http://serverfault.com/questions/489289/handling-renamed-files-or-directories-in-rsync)
+Some background info in this serverfault question: [Handling renamed files or directories in rsync](http://serverfault.com/q/489289/220035)
 
 I provide no documentation. If you want to know more just look at the source code, it's really short!
 
