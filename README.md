@@ -1,7 +1,7 @@
 hrsync
 ======
 
-hrsync is a simple script showing how to backup a directory with rsync detecting moved and renamed files.
+A shell script showing how to backup a directory with rsync detecting moved and renamed files.
 
 Rsync is a great tool but lack detection of moved and renamed files, with this simple script is possible to avoid transfer of files which were only moved around or renamed.
 
@@ -12,7 +12,7 @@ Credits due to this brilliant article: [Detecting File Moves & Renames with Rsyn
 
 Some background info in this serverfault question: [Handling renamed files or directories in rsync](http://serverfault.com/q/489289/220035)
 
-I provide no documentation. If you want to know more just look at the source code, it's really short!
+I provide only this README as documentation. If you want to know more just look at the source code, it's really short!
 
 Requirements
 ------------
