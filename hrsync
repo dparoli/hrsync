@@ -47,7 +47,7 @@ then
 	rsync -axXhHv --stats --no-inc-recursive --numeric-ids --delete --delete-after "$Source"/ "$Target"
 else
 	# remote version
-	rsync -axXhHv --stats --no-inc-recursive --numeric-ids --delete --delete-after "$Source"/ $TargetHost:"$Target"
+	rsync -axXhHv --stats --no-inc-recursive --numeric-ids --delete --delete-after "$Source"/ $TargetHost:"'$Target'"
 fi
 
 status=$?
@@ -64,7 +64,7 @@ then
 		rsync -a --delete --link-dest="$Target" --exclude="/$Shadow" "$Target/" "$Target/$Shadow"
 	else
 		# remote version
-		ssh $TargetHost "rsync -a --delete --link-dest=$Target --exclude=/$Shadow $Target/ $Target/$Shadow"
+		ssh $TargetHost "rsync -a --delete --link-dest='$Target' --exclude='/$Shadow' '$Target/' '$Target/$Shadow'"
 	fi
 fi
 
