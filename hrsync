@@ -20,6 +20,18 @@ Shadow=".rsync_shadow"
 
 # Start doing things
 
+if [ "${Source:0:1}" != / ]
+then
+	echo "Source path needs to be an absolute path"
+	exit 0
+fi
+
+if [ "${Target:0:1}" != / ]
+then
+	echo "Target path needs to be an absolute path"
+	exit 0
+fi
+
 if [ -z "$2" ]
 then
 	echo "Usage:"
