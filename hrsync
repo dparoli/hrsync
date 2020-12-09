@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # hrsync by Daniele Paroli
+# Additions by Christian Garbs and paskalito
 #
 # simple script to backup a directory with rsync detecting moved and renamed files
 #
@@ -14,6 +15,21 @@ Target="${2%/}"
 TargetHost=$3
 
 # ------------------------------------------------------------
+
+
+# if remote host is set, set SSHPort to user specified value else set it to 22
+if [ -n "$3" ]
+then
+	if [ -z "$4" ]
+	then
+		SSHPort=22
+	else
+		SSHPort=$4
+	fi
+	echo "SSH Port is: $SSHPort"
+fi
+
+
 # Name of shadow directory
 Shadow=".rsync_shadow"
 
@@ -59,7 +75,7 @@ then
 	rsync -axXhHv --stats --no-inc-recursive --numeric-ids --delete --delete-after "$Source"/ "$Target"
 else
 	# remote version
-	rsync -axXhHv --stats --no-inc-recursive --numeric-ids --delete --delete-after "$Source"/ $TargetHost:"'$Target'"
+	rsync -axXhHv --stats --no-inc-recursive --numeric-ids --delete --delete-after "$Source"/ -e "ssh -p $SSHPort" $TargetHost:"'$Target'"
 fi
 
 status=$?
@@ -76,7 +92,7 @@ then
 		rsync -a --delete --link-dest="$Target" --exclude="/$Shadow" "$Target/" "$Target/$Shadow"
 	else
 		# remote version
-		ssh $TargetHost "rsync -a --delete --link-dest='$Target' --exclude='/$Shadow' '$Target/' '$Target/$Shadow'"
+		ssh -p $SSHPort $TargetHost "rsync -a --delete --link-dest='$Target' --exclude='/$Shadow' '$Target/' '$Target/$Shadow'"
 	fi
 fi
 
