@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
 # hrsync by Daniele Paroli
-# Additions by Christian Garbs and paskalito
+# Contributors:
+# - mmitch - Christian Garbs
+# - paskalito
 #
 # simple script to backup a directory with rsync detecting moved and renamed files
 #
