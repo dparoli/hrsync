@@ -49,4 +49,4 @@ Use it at your own risk, this is alpha software provided "as is" without any war
 License
 -------
 
-hrsync is © 2014 Daniele Paroli. It is free software, and may be redistributed under the terms specified in the LICENSE file.
+hrsync is free software, and may be redistributed under the terms specified in the LICENSE file.
